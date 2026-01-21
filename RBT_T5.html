@@ -3,155 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RPH RBT TAHUN 5</title>
+    <title>RPH RBT TAHUN 5 - HELMIE</title>
     <style>
-        :root { --primary: #2c3e50; --accent: #27ae60; --bg: #f0fff4; }
-        body { font-family: 'Arial', sans-serif; background: var(--bg); margin: 0; padding: 20px; }
-        .no-print-zone { max-width: 1000px; margin: auto; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); margin-bottom: 40px; }
-        h1.setup-title { text-align: center; color: var(--primary); font-size: 22px; border-bottom: 2px solid var(--accent); padding-bottom: 10px; margin-bottom: 20px; }
-        .input-group { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; }
-        label { display: block; font-weight: bold; font-size: 13px; margin-bottom: 5px; color: #555; }
-        select, input, textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 14px; }
-        .sp-box { border: 1px solid #ddd; border-radius: 6px; max-height: 250px; overflow-y: auto; background: #fafafa; }
+        :root { --primary: #003366; --accent: #c0392b; --bg: #f5f7fa; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--bg); margin: 0; padding: 20px; }
+        .setup-box { max-width: 1000px; margin: auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); border-top: 8px solid var(--primary); }
+        .setup-box h1 { text-align: center; color: var(--primary); text-transform: uppercase; margin-bottom: 25px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; }
+        label { font-weight: bold; color: var(--primary); font-size: 13px; text-transform: uppercase; }
+        select, input, textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; margin-top: 5px; font-size: 14px; box-sizing: border-box; }
+        .sp-container { border: 1px solid #ccc; border-radius: 6px; max-height: 250px; overflow-y: auto; background: #fff; margin-top: 10px; }
         .sp-table { width: 100%; border-collapse: collapse; }
         .sp-table tr { cursor: pointer; border-bottom: 1px solid #eee; }
-        .sp-table tr:hover { background: #e8f5e9; }
-        .sp-table td { padding: 10px; font-size: 13px; }
-        .selected-row { background: #c8e6c9 !important; font-weight: bold; border-left: 4px solid var(--accent); }
-        .ai-tools { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 20px; }
-        .btn-ai { background: #8e44ad; color: white; border: none; padding: 8px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 11px; width: 100%; margin-bottom: 5px; }
-        .btn-main { background: #2e7d32; color: white; border: none; padding: 15px; border-radius: 6px; width: 100%; font-size: 16px; font-weight: bold; cursor: pointer; margin-top: 20px; }
-        .btn-nav { display: inline-block; margin-top: 10px; padding: 10px 20px; background: #7f8c8d; color: white; text-decoration: none; border-radius: 4px; font-weight: bold; }
+        .sp-table tr:hover { background: #f0f4f8; }
+        .sp-table td { padding: 10px; font-size: 13px; line-height: 1.4; }
+        .selected-row { background: #e1f5fe !important; font-weight: bold; border-left: 5px solid #0288d1; }
+        .ai-buttons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 20px; }
+        .btn-ai { background: #673ab7; color: white; border: none; padding: 8px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 11px; }
+        
+        .action-btns { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 25px; }
+        .btn-main { background: var(--primary); color: white; border: none; padding: 15px; border-radius: 6px; font-size: 14px; font-weight: bold; cursor: pointer; text-transform: uppercase; }
+        .btn-print { background: #27ae60; color: white; border: none; padding: 15px; border-radius: 6px; font-size: 14px; font-weight: bold; cursor: pointer; text-transform: uppercase; }
+        .btn-clear { background: #7f8c8d; color: white; border: none; padding: 15px; border-radius: 6px; font-size: 14px; font-weight: bold; cursor: pointer; text-transform: uppercase; }
+        .btn-hub { display: block; text-align: center; margin-top: 20px; padding: 12px; background: #2c3e50; color: white; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 14px; }
 
         /* PRINT FORMAT */
-        .rph-paper { width: 210mm; padding: 20mm; margin: auto; background: white; color: black; border: 1px solid #eee; box-sizing: border-box; }
+        .rph-paper { width: 210mm; padding: 20mm; margin: 40px auto; background: white; border: 1px solid #000; color: #000; box-sizing: border-box; }
         .rph-header { text-align: center; border-bottom: 4px double #000; padding-bottom: 10px; margin-bottom: 20px; }
-        .rph-header h2 { margin: 0; font-size: 24px; text-transform: uppercase; letter-spacing: 1px; }
-        .rph-header h3 { margin: 5px 0 0 0; font-size: 18px; text-transform: uppercase; }
-        .info-bar { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid #000; padding-bottom: 10px; margin-bottom: 15px; font-size: 14px; }
-        .rph-main-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
-        .rph-main-table td { border: 1px solid #000; padding: 12px; vertical-align: top; font-size: 14px; line-height: 1.5; }
-        .col-label { width: 30%; background-color: #f2f2f2 !important; font-weight: bold; text-transform: uppercase; }
-        .sig-container { margin-top: 50px; display: flex; justify-content: space-between; }
-        .sig-box { width: 220px; border-top: 1px solid #000; text-align: center; padding-top: 5px; font-weight: bold; font-size: 12px; }
+        .rph-header h1 { margin: 0; font-size: 22px; text-transform: uppercase; }
+        .meta-table { width: 100%; border-collapse: collapse; margin-bottom: 15px; }
+        .meta-table td { border: 1px solid #000; padding: 8px; font-weight: bold; font-size: 13px; }
+        .main-table { width: 100%; border-collapse: collapse; }
+        .main-table td { border: 1px solid #000; padding: 12px; vertical-align: top; font-size: 13px; line-height: 1.5; }
+        .label-cell { width: 28%; background: #f2f2f2 !important; font-weight: bold; text-transform: uppercase; }
+        .sig-section { margin-top: 50px; display: flex; justify-content: space-between; }
+        .sig-box { width: 200px; border-top: 1px solid #000; text-align: center; padding-top: 5px; font-weight: bold; font-size: 11px; }
 
         @media print {
-            body { padding: 0; background: none; }
-            .no-print-zone { display: none; }
-            .rph-paper { border: none; width: 100%; padding: 0; }
-            .col-label { -webkit-print-color-adjust: exact; background-color: #f2f2f2 !important; }
+            body { padding: 0; background: white; }
+            .no-print { display: none; }
+            .rph-paper { margin: 0; border: none; width: 100%; }
+            .label-cell { -webkit-print-color-adjust: exact; background-color: #f2f2f2 !important; }
         }
     </style>
 </head>
 <body>
 
-<div class="no-print-zone">
-    <h1 class="setup-title">SISTEM RPH: RBT TAHUN 5</h1>
-    
-    <div class="input-group">
-        <div><label>Tarikh</label><input type="date" id="tark" onchange="setHari()"></div>
+<div class="setup-box no-print">
+    <h1>RPH: RBT TAHUN 5</h1>
+    <div class="grid-3">
+        <div><label>Tarikh</label><input type="date" id="tark" onchange="updateDay()"></div>
         <div><label>Hari</label><input type="text" id="hari" readonly></div>
         <div><label>Minggu</label><select id="mng"></select></div>
-        <div><label>Masa</label><input type="text" id="masa" placeholder="10:30 - 11:30"></div>
+        <div><label>Masa</label><input type="text" id="masa" placeholder="Contoh: 10:30 - 11:30"></div>
     </div>
-
-    <div><label>Modul / Tajuk Utama</label><input type="text" id="modul" placeholder="Auto-isi apabila SK dipilih"></div>
+    
+    <div><label>Unit / Tajuk</label><input type="text" id="tajuk" placeholder="Contoh: Unit 3: Teknologi Pertanian"></div>
 
     <div style="margin-top:15px">
-        <label>Standard Kandungan (Pilih SK)</label>
+        <label>Standard Kandungan (SK)</label>
         <select id="sk_select" onchange="loadSP()">
-            <option value="4.3">4.3 Artikel Jahitan (Teknologi Rumah Tangga)</option>
-            <option value="5.1">5.1 Reka Bentuk Produk Tenaga Boleh Baharu</option>
-            <option value="6.3">6.3 Asas Pengaturcaraan (Pilihan & Ulangan)</option>
-            <option value="6.4">6.4 Pembangunan Atur Cara (Mikropengawal)</option>
-            <option value="7.1">7.1 Reka Bentuk Pertanian Bandar</option>
+            <option value="4.3">4.3 Artikel Jahitan</option>
+            <option value="5.1">5.1 Reka Bentuk Produk Menggunakan Tenaga Boleh Baharu</option>
+            <option value="6.3">6.3 Asas Sistem Robotik</option>
+            <option value="7.1">7.1 Reka Bentuk Produk Bertema (Pertanian Hidroponik)</option>
         </select>
     </div>
 
     <div style="margin-top:15px">
         <label>Standard Pembelajaran (SP)</label>
-        <div class="sp-box"><table class="sp-table" id="sp-list"></table></div>
+        <div class="sp-container"><table class="sp-table" id="sp-list"></table></div>
     </div>
 
-    <div class="ai-tools">
-        <div><button class="btn-ai" onclick="jana('obj')">✨ JANA OBJEKTIF</button><textarea id="ai_obj" rows="3"></textarea></div>
-        <div><button class="btn-ai" onclick="jana('act')">✨ JANA AKTIVITI</button><textarea id="ai_act" rows="3"></textarea></div>
-        <div><button class="btn-ai" onclick="jana('ref')">✨ JANA REFLEKSI</button><textarea id="ai_ref" rows="3"></textarea></div>
+    <div class="ai-buttons">
+        <div><button class="btn-ai" onclick="aiFill('obj')">🪄 AUTO OBJEKTIF</button><textarea id="f_obj" rows="3"></textarea></div>
+        <div><button class="btn-ai" onclick="aiFill('act')">🪄 AUTO AKTIVITI</button><textarea id="f_act" rows="3"></textarea></div>
+        <div><button class="btn-ai" onclick="aiFill('ref')">🪄 AUTO REFLEKSI</button><textarea id="f_ref" rows="3"></textarea></div>
     </div>
 
-    <button class="btn-main" onclick="simpan()">SIMPAN & JANA RPH PROFESIONAL</button>
-    <a href="index.html" class="btn-nav">KEMBALI KE HUB</a>
+    <div class="action-btns">
+        <button class="btn-main" onclick="generateRPH()">JANA RPH</button>
+        <button class="btn-print" onclick="window.print()">CETAK RPH</button>
+        <button class="btn-clear" onclick="clearAll()">KOSONGKAN</button>
+    </div>
+    <a href="index.html" class="btn-hub">KEMBALI KE HUB UTAMA</a>
 </div>
 
-<div id="print-area"></div>
+<div id="print-zone"></div>
 
 <script>
-const dataSP = {
-    "4.3": ["4.3.1 Mengenal pasti artikel jahitan dan fungsinya.", "4.3.2 Menerangkan fungsi alatan jahitan.", "4.3.3 Mengenal pasti jenis mata jahitan (kia, jelujur, sembat).", "4.3.6 Menghasilkan artikel jahitan menggunakan mata jahitan yang sesuai."],
-    "5.1": ["5.1.1 Menyatakan takrif dan sumber tenaga boleh baharu.", "5.1.2 Menerangkan kepentingan tenaga boleh baharu.", "5.1.6 Membina produk tenaga boleh baharu berdasarkan lakaran."],
-    "6.3": ["6.3.1 Menyatakan maksud struktur kawalan pilihan dan ulangan.", "6.3.3 Menulis pseudokod dan melukis carta alir kawalan pilihan/ulangan."],
-    "6.4": ["6.4.1 Mengenal pasti fitur pada perisian mikropengawal.", "6.4.4 Membina atur cara yang menggunakan sensor dan aktuator."],
-    "7.1": ["7.1.1 Menerangkan maksud pertanian bandar.", "7.1.3 Melakar reka bentuk sistem penanaman pertanian bandar.", "7.1.6 Menanam biji benih dan menyelenggara tanaman."]
+const spData = {
+    "4.3": ["4.3.1 Mengenal pasti jenis mata jahitan tangan.","4.3.2 Menyatakan fungsi alatan jahitan.","4.3.3 Menghasilkan artikel jahitan menggunakan mata jahitan tangan."],
+    "5.1": ["5.1.1 Menyatakan sumber tenaga boleh baharu.","5.1.2 Mengenal pasti kepentingan tenaga boleh baharu.","5.1.3 Melakar reka bentuk produk tenaga boleh baharu."],
+    "6.3": ["6.3.1 Menyatakan elemen sistem robotik (Sensor, Kawalan, Penggerak).","6.3.2 Mengenal pasti komponen elektronik dalam robotik.","6.3.3 Membina atur cara untuk menggerakkan robot."],
+    "7.1": ["7.1.1 Mengenal pasti sistem hidroponik dalam pertanian.","7.1.2 Menyatakan alatan dan bahan untuk menanam secara hidroponik.","7.1.3 Menanam biji benih menggunakan sistem hidroponik."]
 };
 
-let selectedSPs = [];
+let selectedSP = [];
 const mngSelect = document.getElementById('mng');
 for(let i=1; i<=42; i++) mngSelect.innerHTML += `<option value="${i}">Minggu ${i}</option>`;
 
-function setHari() {
+function updateDay() {
     const d = new Date(document.getElementById('tark').value);
-    const days = ["Ahad","Isnin","Selasa","Rabu","Khamis","Jumaat","Sabtu"];
-    document.getElementById('hari').value = days[d.getDay()] || "";
+    document.getElementById('hari').value = ["Ahad","Isnin","Selasa","Rabu","Khamis","Jumaat","Sabtu"][d.getDay()] || "";
 }
 
 function loadSP() {
     const sk = document.getElementById('sk_select').value;
-    const skText = document.getElementById('sk_select').options[document.getElementById('sk_select').selectedIndex].text;
-    document.getElementById('modul').value = skText;
-    const list = document.getElementById('sp-list');
-    list.innerHTML = "";
-    selectedSPs = [];
-    dataSP[sk].forEach(s => {
-        let row = list.insertRow();
-        row.onclick = function() {
+    const table = document.getElementById('sp-list');
+    table.innerHTML = ""; selectedSP = [];
+    spData[sk]?.forEach(s => {
+        let r = table.insertRow();
+        r.onclick = function() {
             this.classList.toggle('selected-row');
-            if(this.classList.contains('selected-row')) selectedSPs.push(s);
-            else selectedSPs = selectedSPs.filter(i => i !== s);
+            if(this.classList.contains('selected-row')) selectedSP.push(s);
+            else selectedSP = selectedSP.filter(i => i !== s);
         };
-        row.innerHTML = `<td>${s}</td>`;
+        r.innerHTML = `<td>${s}</td>`;
     });
 }
 loadSP();
 
-function jana(type) {
-    const mod = document.getElementById('modul').value || "Unit RBT";
-    if(type==='obj') document.getElementById('ai_obj').value = `Pada akhir PdPc, murid dapat:\n1. Menguasai kemahiran amali dalam ${mod} dengan langkah yang betul dan selamat.`;
-    else if(type==='act') document.getElementById('ai_act').value = `1. Penerangan teori dan keselamatan. 2. Demonstrasi oleh guru. 3. Aktiviti amali murid mengikut kumpulan. 4. Pembersihan bengkel/kawasan.`;
-    else document.getElementById('ai_ref').value = `___ / ___ murid berjaya menyiapkan tugasan amali hari ini.`;
+function aiFill(type) {
+    const t = document.getElementById('tajuk').value || "Topik RBT";
+    if(type==='obj') document.getElementById('f_obj').value = `Pada akhir PdPc, murid dapat:\n1. Menguasai kemahiran praktikal bagi ${t}.\n2. Menjawab soalan penilaian dengan betul.`;
+    else if(type==='act') document.getElementById('f_act').value = `1. Pengenalan alatan dan bahan.\n2. Amali / Projek (Hands-on).\n3. Pengemasan bengkel dan rumusan.`;
+    else document.getElementById('f_ref').value = `___ / ___ murid berjaya menyiapkan projek/latihan tepat pada masa.`;
 }
 
-function simpan() {
-    if(selectedSPs.length === 0) return alert("Pilih SP!");
-    const skText = document.getElementById('sk_select').options[document.getElementById('sk_select').selectedIndex].text;
-    const spHtml = selectedSPs.map(s => `• ${s}`).join("<br>");
+function clearAll() {
+    if(confirm("Padam data?")) { location.reload(); }
+}
+
+function generateRPH() {
+    if(selectedSP.length === 0) return alert("Pilih SP!");
+    const skTxt = document.getElementById('sk_select').options[document.getElementById('sk_select').selectedIndex].text;
     const content = `
     <div class="rph-paper">
-        <div class="rph-header"><h2>RANCANGAN PENGAJARAN HARIAN</h2><h3>REKA BENTUK DAN TEKNOLOGI TAHUN 5</h3></div>
-        <div class="info-bar">
-            <div><strong>TARIKH:</strong> ${document.getElementById('tark').value} | <strong>HARI:</strong> ${document.getElementById('hari').value}</div>
-            <div style="text-align:right"><strong>MASA:</strong> ${document.getElementById('masa').value} | <strong>GURU:</strong> MOHAMAD HELMIE</div>
+        <div class="rph-header">
+            <h1>RANCANGAN PENGAJARAN HARIAN</h1>
+            <h2>REKA BENTUK DAN TEKNOLOGI TAHUN 5</h2>
         </div>
-        <table class="rph-main-table">
-            <tr><td class="col-label">MODUL</td><td>${document.getElementById('modul').value}</td></tr>
-            <tr><td class="col-label">STANDARD KANDUNGAN</td><td>${skText}</td></tr>
-            <tr><td class="col-label">STANDARD PEMBELAJARAN</td><td style="font-weight:bold">${spHtml}</td></tr>
-            <tr><td class="col-label">OBJEKTIF PEMBELAJARAN</td><td>${document.getElementById('ai_obj').value.replace(/\n/g,"<br>")}</td></tr>
-            <tr><td class="col-label">AKTIVITI PdPc</td><td>${document.getElementById('ai_act').value.replace(/\n/g,"<br>")}</td></tr>
-            <tr><td class="col-label">REFLEKSI</td><td>${document.getElementById('ai_ref').value.replace(/\n/g,"<br>")}</td></tr>
+        <table class="meta-table">
+            <tr>
+                <td>TARIKH: ${document.getElementById('tark').value}</td>
+                <td>HARI: ${document.getElementById('hari').value}</td>
+                <td>MINGGU: ${document.getElementById('mng').value}</td>
+            </tr>
+            <tr>
+                <td colspan="2">MASA: ${document.getElementById('masa').value}</td>
+                <td>GURU: MOHAMAD HELMIE</td>
+            </tr>
         </table>
-        <div class="sig-container"><div class="sig-box">TANDATANGAN GURU</div><div class="sig-box">TANDATANGAN PENTADBIR</div></div>
+        <table class="main-table">
+            <tr><td class="label-cell">UNIT / TAJUK</td><td>${document.getElementById('tajuk').value}</td></tr>
+            <tr><td class="label-cell">STANDARD KANDUNGAN</td><td>${skTxt}</td></tr>
+            <tr><td class="label-cell">STANDARD PEMBELAJARAN</td><td style="font-weight:bold">${selectedSP.map(s => "• "+s).join("<br>")}</td></tr>
+            <tr><td class="label-cell">OBJEKTIF PEMBELAJARAN</td><td>${document.getElementById('f_obj').value.replace(/\n/g,"<br>")}</td></tr>
+            <tr><td class="label-cell">AKTIVITI PdPc</td><td>${document.getElementById('f_act').value.replace(/\n/g,"<br>")}</td></tr>
+            <tr><td class="label-cell">REFLEKSI / IMPAK</td><td>${document.getElementById('f_ref').value.replace(/\n/g,"<br>")}</td></tr>
+        </table>
+        <div class="sig-section">
+            <div class="sig-box">TANDATANGAN GURU</div>
+            <div class="sig-box">TANDATANGAN PENTADBIR</div>
+        </div>
     </div><div style="page-break-after:always;"></div>`;
-    document.getElementById('print-area').innerHTML += content;
+    document.getElementById('print-zone').innerHTML += content;
+    window.scrollTo(0, document.body.scrollHeight);
 }
 </script>
 </body>
