@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUB RPH - MOHAMAD HELMIE</title>
+    <style>
+        :root {
+            --bg: #f4f7f6;
+            --primary: #2c3e50;
+            --accent: #3498db;
+            --white: #ffffff;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .hub-container {
+            width: 90%;
+            max-width: 900px;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .profile-section {
+            margin-bottom: 30px;
+        }
+        .profile-section h1 {
+            margin: 0;
+            color: var(--primary);
+            font-size: 28px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .profile-section p {
+            color: #7f8c8d;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+        .grid-menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .menu-card {
+            background: #fff;
+            border: 2px solid #ecf0f1;
+            padding: 25px;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .menu-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.2);
+        }
+        .icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+        .subject-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        .subject-year {
+            font-size: 14px;
+            color: var(--accent);
+            margin-top: 5px;
+        }
+        .footer {
+            margin-top: 40px;
+            font-size: 12px;
+            color: #bdc3c7;
+        }
+        /* Warna spesifik mengikut subjek */
+        .mate { border-top: 5px solid #2980b9; }
+        .rbt { border-top: 5px solid #e67e22; }
+        .moral { border-top: 5px solid #c0392b; }
+    </style>
+</head>
+<body>
+
+<div class="hub-container">
+    <div class="profile-section">
+        <h1>SISTEM RPH DIGITAL</h1>
+        <p>MOHAMAD HELMIE | SK KEPANGIAN</p>
+    </div>
+
+    <div class="grid-menu">
+        <a href="MATE_T2.html" class="menu-card mate">
+            <div class="icon">🔢</div>
+            <div class="subject-name">MATEMATIK</div>
+            <div class="subject-year">TAHUN 2</div>
+        </a>
+
+        <a href="MATE_T3.html" class="menu-card mate">
+            <div class="icon">📐</div>
+            <div class="subject-name">MATEMATIK</div>
+            <div class="subject-year">TAHUN 3</div>
+        </a>
+
+        <a href="RBT_T4.html" class="menu-card rbt">
+            <div class="icon">⚙️</div>
+            <div class="subject-name">REKA BENTUK & TEKNOLOGI</div>
+            <div class="subject-year">TAHUN 4</div>
+        </a>
+
+        <a href="RBT_T5.html" class="menu-card rbt">
+            <div class="icon">🛠️</div>
+            <div class="subject-name">REKA BENTUK & TEKNOLOGI</div>
+            <div class="subject-year">TAHUN 5</div>
+        </a>
+
+        <a href="MORAL_T2.html" class="menu-card moral">
+            <div class="icon">🤝</div>
+            <div class="subject-name">PENDIDIKAN MORAL</div>
+            <div class="subject-year">TAHUN 2</div>
+        </a>
+    </div>
+
+    <div class="footer">
+        &copy; 2026 RPH Generator - Cikgu Mohamad Helmie
+    </div>
+</div>
+
+</body>
+</html>
