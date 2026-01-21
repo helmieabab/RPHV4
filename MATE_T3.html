@@ -3,209 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RPH MATE T3 - MOHAMAD HELMIE</title>
+    <title>RPH MATEMATIK TAHUN 3</title>
     <style>
-        :root { --primary: #2c3e50; --success: #27ae60; --ai: #8e44ad; }
-        body { font-family: 'Segoe UI', sans-serif; background: #fdfefe; padding: 15px; margin: 0; }
-        .container { max-width: 1100px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .header { text-align: center; border-bottom: 2px solid #333; margin-bottom: 25px; padding-bottom: 10px; }
-        .header h1 { margin: 0; font-size: 22px; text-transform: uppercase; }
-        .header p { margin: 5px 0; font-weight: bold; color: #555; }
-        .input-section { background: #fcf3cf; padding: 20px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 20px; }
-        .grid-flex { display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 15px; }
-        .grid-flex div { flex: 1; min-width: 200px; }
-        label { font-weight: bold; font-size: 13px; color: var(--primary); display: block; margin-bottom: 5px; }
-        select, input, textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 14px; box-sizing: border-box; }
-        .sp-table-wrapper { max-height: 300px; overflow-y: auto; border: 1px solid #ccc; border-radius: 5px; background: white; margin-top: 5px; }
-        .sp-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-        .sp-table tr { cursor: pointer; border-bottom: 1px solid #eee; transition: 0.2s; }
-        .sp-table tr:hover { background: #f1f1f1; }
-        .sp-table td { padding: 12px; line-height: 1.5; }
-        .selected-row { background: #d4e6f1 !important; font-weight: bold; border-left: 5px solid var(--primary); }
-        .ai-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; margin-top: 20px; }
-        .ai-box { border: 1px solid #d1d1d1; padding: 15px; border-radius: 8px; background: #fff; }
-        .btn-ai { background: var(--ai); color: white; border: none; padding: 7px 12px; border-radius: 4px; cursor: pointer; font-size: 11px; margin-bottom: 8px; font-weight: bold; }
-        .btn-save { background: var(--success); color: white; padding: 15px; border: none; border-radius: 5px; width: 100%; font-size: 16px; cursor: pointer; font-weight: bold; margin-top: 25px; }
-        .footer-btns { display: flex; gap: 10px; margin-top: 15px; }
-        .btn-util { flex: 1; padding: 12px; border: none; border-radius: 5px; cursor: pointer; color: white; font-weight: bold; text-align: center; text-decoration: none; font-size: 14px; }
-        .rph-table { width: 100%; border-collapse: collapse; margin-top: 40px; border: 2px solid #000; background: white; }
-        .rph-table td { border: 1px solid #000; padding: 12px; vertical-align: top; font-size: 14px; color: black; line-height: 1.6; }
-        .label-cell { width: 220px; background: #f2f2f2; font-weight: bold; text-transform: uppercase; }
-        @media print { .no-print { display: none; } }
+        :root { --primary: #2c3e50; --accent: #2980b9; --bg: #f4f7f6; }
+        body { font-family: 'Arial', sans-serif; background: var(--bg); margin: 0; padding: 20px; }
+        .no-print-zone { max-width: 1000px; margin: auto; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); margin-bottom: 40px; }
+        h1.setup-title { text-align: center; color: var(--primary); font-size: 22px; border-bottom: 2px solid var(--accent); padding-bottom: 10px; margin-bottom: 20px; }
+        .input-group { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; }
+        label { display: block; font-weight: bold; font-size: 13px; margin-bottom: 5px; color: #555; }
+        select, input, textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-size: 14px; }
+        .sp-box { border: 1px solid #ddd; border-radius: 6px; max-height: 250px; overflow-y: auto; background: #fafafa; }
+        .sp-table { width: 100%; border-collapse: collapse; }
+        .sp-table tr { cursor: pointer; border-bottom: 1px solid #eee; }
+        .sp-table tr:hover { background: #eef7ff; }
+        .sp-table td { padding: 10px; font-size: 13px; }
+        .selected-row { background: #d6eaf8 !important; font-weight: bold; border-left: 4px solid var(--accent); }
+        .ai-tools { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 20px; }
+        .btn-ai { background: #8e44ad; color: white; border: none; padding: 8px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 12px; margin-bottom: 5px; width: 100%; }
+        .btn-main { background: #27ae60; color: white; border: none; padding: 15px; border-radius: 6px; width: 100%; font-size: 16px; font-weight: bold; cursor: pointer; margin-top: 20px; }
+        .btn-nav { display: inline-block; margin-top: 10px; padding: 10px 20px; background: #7f8c8d; color: white; text-decoration: none; border-radius: 4px; font-weight: bold; }
+
+        /* PRINT STYLE - PROFESSIONAL */
+        .rph-paper { width: 210mm; padding: 20mm; margin: auto; background: white; color: black; border: 1px solid #eee; box-sizing: border-box; }
+        .rph-header { text-align: center; border-bottom: 4px double #000; padding-bottom: 10px; margin-bottom: 20px; }
+        .rph-header h2 { margin: 0; font-size: 24px; text-transform: uppercase; }
+        .rph-header h3 { margin: 5px 0 0 0; font-size: 18px; text-transform: uppercase; }
+        .info-bar { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid #000; padding-bottom: 10px; margin-bottom: 15px; font-size: 14px; }
+        .rph-main-table { width: 100%; border-collapse: collapse; }
+        .rph-main-table td { border: 1px solid #000; padding: 12px; vertical-align: top; font-size: 14px; }
+        .col-label { width: 30%; background-color: #f2f2f2 !important; font-weight: bold; text-transform: uppercase; }
+        .sig-container { margin-top: 50px; display: flex; justify-content: space-between; }
+        .sig-box { width: 200px; border-top: 1px solid #000; text-align: center; padding-top: 5px; font-weight: bold; }
+
+        @media print {
+            body { padding: 0; background: none; }
+            .no-print-zone { display: none; }
+            .rph-paper { border: none; width: 100%; padding: 0; }
+        }
     </style>
 </head>
 <body>
 
-<div class="container no-print">
-    <div class="header">
-        <h1>RANCANGAN PENGAJARAN HARIAN</h1>
-        <p>MOHAMAD HELMIE | MATEMATIK TAHUN 3 (KEMASKINI)</p>
+<div class="no-print-zone">
+    <h1 class="setup-title">PENGURUSAN RPH: MATEMATIK TAHUN 3</h1>
+    
+    <div class="input-group">
+        <div><label>Tarikh</label><input type="date" id="tark" onchange="setHari()"></div>
+        <div><label>Hari</label><input type="text" id="hari" readonly></div>
+        <div><label>Minggu</label><select id="mng"></select></div>
+        <div><label>Masa</label><input type="text" id="masa" placeholder="Contoh: 08:00 - 09:00"></div>
     </div>
 
-    <div class="input-section">
-        <div class="grid-flex">
-            <div><label>Tarikh</label><input type="date" id="tark" onchange="setHari()"></div>
-            <div><label>Hari</label><input type="text" id="hari" readonly></div>
-            <div><label>Minggu</label><select id="mng"></select></div>
-            <div><label>Masa</label><input type="text" id="masa" placeholder="08:00 - 09:00"></div>
-        </div>
+    <div><label>Bidang / Tajuk</label><input type="text" id="tajuk" placeholder="Contoh: NOMBOR DAN OPERASI / 1.0 NOMBOR BULAT"></div>
 
-        <div><label>Bidang / Tajuk</label><input type="text" id="tajuk" placeholder="Contoh: NOMBOR DAN OPERASI / 1.0 NOMBOR BULAT HINGGA 10,000"></div>
-
-        <div style="margin-top:15px">
-            <label>Standard Kandungan (Pilih SK)</label>
-            <select id="sk_select" onchange="loadSP()">
-                <option value="1.1">1.1 Nilai Nombor hingga 10,000</option>
-                <option value="1.4">1.4 Nilai Tempat dan Nilai Digit</option>
-                <option value="2.1">2.1 Tambah dalam lingkungan 10,000</option>
-                <option value="2.2">2.2 Tolak dalam lingkungan 10,000</option>
-                <option value="2.3">2.3 Darab dalam lingkungan 10,000</option>
-                <option value="2.4">2.4 Bahagi dalam lingkungan 10,000</option>
-                <option value="3.1">3.1 Pecahan Wajar</option>
-                <option value="3.2">3.2 Perpuluhan</option>
-                <option value="3.3">3.3 Peratus</option>
-                <option value="4.1">4.1 Tambah dan Tolak Wang</option>
-                <option value="4.4">4.4 Nilai Mata Wang Asing</option>
-            </select>
-        </div>
-
-        <div style="margin-top:15px">
-            <label>Standard Pembelajaran (Klik untuk pilih SP)</label>
-            <div class="sp-table-wrapper">
-                <table class="sp-table" id="sp-table-body"></table>
-            </div>
-        </div>
-
-        <div class="ai-grid">
-            <div class="ai-box">
-                <button class="btn-ai" onclick="janaAI('obj')">✨ JANA OBJEKTIF</button>
-                <textarea id="ai_obj" rows="4"></textarea>
-            </div>
-            <div class="ai-box">
-                <button class="btn-ai" onclick="janaAI('act')">✨ JANA AKTIVITI</button>
-                <textarea id="ai_act" rows="4"></textarea>
-            </div>
-            <div class="ai-box">
-                <button class="btn-ai" onclick="janaAI('ref')">✨ JANA REFLEKSI</button>
-                <textarea id="ai_ref" rows="4"></textarea>
-            </div>
-        </div>
-
-        <button class="btn-save" onclick="simpan()">SIMPAN RPH KE JADUAL</button>
-        
-        <div class="footer-btns">
-            <button class="btn-util" style="background:#333" onclick="window.print()">CETAK RPH (PDF)</button>
-            <a href="index.html" class="btn-util" style="background:#7f8c8d">KEMBALI KE HUB</a>
-        </div>
+    <div style="margin-top:15px">
+        <label>Standard Kandungan (SK)</label>
+        <select id="sk_select" onchange="loadSP()">
+            <option value="1.1">1.1 Nilai Nombor hingga 10,000</option>
+            <option value="1.4">1.4 Nilai Tempat dan Nilai Digit</option>
+            <option value="2.1">2.1 Tambah lingkungan 10,000</option>
+            <option value="2.2">2.2 Tolak lingkungan 10,000</option>
+            <option value="2.3">2.3 Darab lingkungan 10,000</option>
+            <option value="2.4">2.4 Bahagi lingkungan 10,000</option>
+            <option value="3.1">3.1 Pecahan Wajar</option>
+            <option value="3.2">3.2 Perpuluhan</option>
+            <option value="3.3">3.3 Peratus</option>
+            <option value="4.1">4.1 Tambah dan Tolak Wang</option>
+        </select>
     </div>
+
+    <div style="margin-top:15px">
+        <label>Standard Pembelajaran (SP)</label>
+        <div class="sp-box"><table class="sp-table" id="sp-list"></table></div>
+    </div>
+
+    <div class="ai-tools">
+        <div><button class="btn-ai" onclick="jana('obj')">✨ JANA OBJEKTIF</button><textarea id="ai_obj" rows="3"></textarea></div>
+        <div><button class="btn-ai" onclick="jana('act')">✨ JANA AKTIVITI</button><textarea id="ai_act" rows="3"></textarea></div>
+        <div><button class="btn-ai" onclick="jana('ref')">✨ JANA REFLEKSI</button><textarea id="ai_ref" rows="3"></textarea></div>
+    </div>
+
+    <button class="btn-main" onclick="simpan()">SIMPAN RPH PROFESIONAL</button>
+    <a href="index.html" class="btn-nav">KEMBALI KE HUB</a>
 </div>
 
-<div id="output"></div>
+<div id="print-area"></div>
 
 <script>
 const dataSP = {
-    "1.1": [
-        "1.1.1 Menamakan nombor hingga 10,000.",
-        "1.1.2 Menentukan nilai nombor hingga 10,000."
-    ],
-    "1.4": [
-        "1.4.1 Menyatakan nilai tempat dan nilai digit bagi sebarang nombor.",
-        "1.4.2 Mencerakin sebarang nombor mengikut nilai tempat dan nilai digit."
-    ],
-    "2.1": [
-        "2.1.1 Menyelesaikan ayat matematik tambah melibatkan dua nombor dalam lingkungan 10,000.",
-        "2.1.2 Menyelesaikan ayat matematik tambah melibatkan tiga nombor dalam lingkungan 10,000."
-    ],
-    "2.2": [
-        "2.2.1 Menyelesaikan ayat matematik tolak melibatkan dua nombor dalam lingkungan 10,000.",
-        "2.2.2 Menyelesaikan ayat matematik tolak melibatkan dua nombor dari satu nombor dalam lingkungan 10,000."
-    ],
-    "2.3": [
-        "2.3.1 Menyelesaikan ayat matematik darab sebarang nombor hingga empat digit dengan nombor satu digit, 10, 100 dan 1000."
-    ],
-    "2.4": [
-        "2.4.1 Menyelesaikan ayat matematik bahagi sebarang nombor dalam lingkungan 10,000 dengan nombor satu digit, 10, 100 dan 1000."
-    ],
-    "3.1": [
-        "3.1.1 Mengenal pasti pecahan wajar sebagai sebahagian daripada satu kumpulan.",
-        "3.1.2 Menyatakan pecahan setara bagi pecahan wajar.",
-        "3.1.3 Menukar pecahan wajar kepada bentuk termudah."
-    ],
-    "3.2": [
-        "3.2.1 Menyatakan perpuluhan sifar perpuluhan sifar satu hingga sifar perpuluhan sembilan sembilan.",
-        "3.2.2 Menulis perpuluhan dalam angka dan perkataan.",
-        "3.2.4 Membanding nilai dua perpuluhan hingga dua tempat perpuluhan."
-    ],
-    "3.3": [
-        "3.3.1 Mengenal peratus.",
-        "3.3.2 Menukar pecahan persepuluh kepada peratus dan sebaliknya.",
-        "3.3.4 Melorek petak seratus mengikut peratus yang diberi."
-    ],
-    "4.1": [
-        "4.1.1 Menyelesaikan ayat matematik tambah melibatkan dua nilai wang hasil tambahnya hingga RM10,000.",
-        "4.1.2 Menyelesaikan ayat matematik tambah melibatkan tiga nilai wang hasil tambahnya hingga RM10,000."
-    ],
-    "4.4": [
-        "4.4.1 Mengenal mata wang negara ASEAN.",
-        "4.4.2 Menyatakan nilai wang RM1 dengan nilai mata wang negara lain."
-    ]
+    "1.1": ["1.1.1 Menamakan nombor hingga 10,000.","1.1.2 Menentukan nilai nombor hingga 10,000."],
+    "1.4": ["1.4.1 Menyatakan nilai tempat dan nilai digit.","1.4.2 Mencerakin sebarang nombor."],
+    "2.1": ["2.1.1 Menambah hingga tiga nombor lingkungan 10,000."],
+    "2.2": ["2.2.1 Menolak dua nombor lingkungan 10,000.","2.2.2 Menolak dua nombor dari satu nombor."],
+    "2.3": ["2.3.1 Mendarab nombor hingga empat digit dengan satu digit, 10, 100, 1000."],
+    "2.4": ["2.4.1 Membahagi nombor hingga 10,000 dengan satu digit, 10, 100, 1000."],
+    "3.1": ["3.1.1 Mengenal pecahan wajar sebagai sebahagian kumpulan.","3.1.2 Pecahan setara.","3.1.3 Pecahan bentuk termudah."],
+    "3.2": ["3.2.1 Menamakan perpuluhan hingga dua tempat perpuluhan.","3.2.4 Membanding nilai perpuluhan."],
+    "3.3": ["3.3.1 Mengenal peratus.","3.3.2 Simbol peratus."],
+    "4.1": ["4.1.1 Menambah dua nilai wang hingga RM10,000.","4.1.2 Menolak nilai wang hingga RM10,000."]
 };
 
 let selectedSPs = [];
-const mS = document.getElementById('mng'); for(let i=1; i<=42; i++) mS.innerHTML += `<option value="${i}">Minggu ${i}</option>`;
+const mngSelect = document.getElementById('mng');
+for(let i=1; i<=42; i++) mngSelect.innerHTML += `<option value="${i}">Minggu ${i}</option>`;
 
-function setHari() { 
-    let d = new Date(document.getElementById('tark').value); 
-    document.getElementById('hari').value = ['Ahad','Isnin','Selasa','Rabu','Khamis','Jumaat','Sabtu'][d.getDay()] || ''; 
+function setHari() {
+    const d = new Date(document.getElementById('tark').value);
+    const days = ["Ahad","Isnin","Selasa","Rabu","Khamis","Jumaat","Sabtu"];
+    document.getElementById('hari').value = days[d.getDay()] || "";
 }
 
 function loadSP() {
-    let sk = document.getElementById('sk_select').value; 
-    let b = document.getElementById('sp-table-body'); 
-    b.innerHTML = "";
-    selectedSPs = []; 
-    dataSP[sk].forEach((s) => {
-        let row = b.insertRow();
-        row.onclick = function() { 
-            if(this.classList.contains('selected-row')) {
-                this.classList.remove('selected-row');
-                selectedSPs = selectedSPs.filter(item => item !== s);
-            } else {
-                this.classList.add('selected-row');
-                selectedSPs.push(s);
-            }
+    const sk = document.getElementById('sk_select').value;
+    const list = document.getElementById('sp-list');
+    list.innerHTML = "";
+    selectedSPs = [];
+    dataSP[sk].forEach(s => {
+        let row = list.insertRow();
+        row.onclick = function() {
+            this.classList.toggle('selected-row');
+            if(this.classList.contains('selected-row')) selectedSPs.push(s);
+            else selectedSPs = selectedSPs.filter(i => i !== s);
         };
         row.innerHTML = `<td>${s}</td>`;
     });
 }
-
 loadSP();
 
-function janaAI(t) {
-    let tajuk = document.getElementById('tajuk').value || "Tajuk Pembelajaran";
-    if(selectedSPs.length === 0) return alert("Pilih SP dahulu!");
-    if(t==='obj') {
-        document.getElementById('ai_obj').value = `Pada akhir PdPc, murid dapat:\n1. Memahami dan menguasai konsep ${tajuk} berdasarkan SP yang dipilih dengan betul.`;
-    } else if(t==='act') {
-        document.getElementById('ai_act').value = `1. Set Induksi: Murid diterangkan tentang objektif pembelajaran hari ini.\n2. Aktiviti: Murid melakukan latihan secara individu atau berkumpulan menggunakan buku teks/aktiviti.\n3. Penutup: Guru merumuskan sesi pembelajaran.`;
-    } else {
-        document.getElementById('ai_ref').value = `___ / ___ murid menguasai objektif pembelajaran hari ini.`;
-    }
+function jana(type) {
+    const tajuk = document.getElementById('tajuk').value || "Topik Pembelajaran";
+    if(type==='obj') document.getElementById('ai_obj').value = `Pada akhir PdPc, murid dapat:\n1. Menyelesaikan latihan berkaitan ${tajuk} dengan bimbingan guru.`;
+    else if(type==='act') document.getElementById('ai_act').value = `1. Murid menonton video/slide tajuk. 2. Murid membuat latihan buku aktiviti. 3. Perbincangan jawapan.`;
+    else document.getElementById('ai_ref').value = `___ / ___ murid mencapai objektif.`;
 }
 
 function simpan() {
-    if(selectedSPs.length === 0) return alert("Pilih sekurang-kurangnya satu SP!");
-    let skText = document.getElementById('sk_select').options[document.getElementById('sk_select').selectedIndex].text;
-    let spHtml = selectedSPs.map(s => `• ${s}`).join("<br>");
-    let html = `<table class="rph-table">
-        <tr><td class="label-cell">INFO</td><td>MG ${document.getElementById('mng').value} | ${document.getElementById('tark').value} | ${document.getElementById('hari').value}</td></tr>
-        <tr><td class="label-cell">BIDANG / TAJUK / MASA</td><td>${document.getElementById('tajuk').value} | ${document.getElementById('masa').value}</td></tr>
-        <tr><td class="label-cell">STANDARD KANDUNGAN</td><td>${skText}</td></tr>
-        <tr><td class="label-cell">STANDARD PEMBELAJARAN</td><td>${spHtml}</td></tr>
-        <tr><td class="label-cell">OBJEKTIF</td><td>${document.getElementById('ai_obj').value.replace(/\n/g,"<br>")}</td></tr>
-        <tr><td class="label-cell">AKTIVITI</td><td>${document.getElementById('ai_act').value.replace(/\n/g,"<br>")}</td></tr>
-    </table><div style="page-break-after:always;"></div>`;
-    document.getElementById('output').innerHTML += html;
+    if(selectedSPs.length === 0) return alert("Pilih SP!");
+    const skText = document.getElementById('sk_select').options[document.getElementById('sk_select').selectedIndex].text;
+    const spHtml = selectedSPs.map(s => `• ${s}`).join("<br>");
+    const content = `
+    <div class="rph-paper">
+        <div class="rph-header"><h2>RANCANGAN PENGAJARAN HARIAN</h2><h3>MATEMATIK TAHUN 3</h3></div>
+        <div class="info-bar">
+            <div><strong>TARIKH:</strong> ${document.getElementById('tark').value} | <strong>HARI:</strong> ${document.getElementById('hari').value}</div>
+            <div style="text-align:right"><strong>MASA:</strong> ${document.getElementById('masa').value} | <strong>GURU:</strong> HELMIE</div>
+        </div>
+        <table class="rph-main-table">
+            <tr><td class="col-label">TAJUK</td><td>${document.getElementById('tajuk').value}</td></tr>
+            <tr><td class="col-label">SK</td><td>${skText}</td></tr>
+            <tr><td class="col-label">SP</td><td style="font-weight:bold">${spHtml}</td></tr>
+            <tr><td class="col-label">OBJEKTIF</td><td>${document.getElementById('ai_obj').value.replace(/\n/g,"<br>")}</td></tr>
+            <tr><td class="col-label">AKTIVITI</td><td>${document.getElementById('ai_act').value.replace(/\n/g,"<br>")}</td></tr>
+            <tr><td class="col-label">REFLEKSI</td><td>${document.getElementById('ai_ref').value.replace(/\n/g,"<br>")}</td></tr>
+        </table>
+        <div class="sig-container"><div class="sig-box">GURU</div><div class="sig-box">PENTADBIR</div></div>
+    </div><div style="page-break-after:always;"></div>`;
+    document.getElementById('print-area').innerHTML += content;
 }
 </script>
 </body>
