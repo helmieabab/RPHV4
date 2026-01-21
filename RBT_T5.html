@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RPH RBT TAHUN 5 - HELMIE</title>
+    <title>RPH MORAL TAHUN 2 - HELMIE</title>
     <style>
         :root { --primary: #003366; --accent: #c0392b; --bg: #f5f7fa; }
         body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--bg); margin: 0; padding: 20px; }
@@ -18,8 +18,6 @@
         .sp-table tr:hover { background: #f0f4f8; }
         .sp-table td { padding: 10px; font-size: 13px; line-height: 1.4; }
         .selected-row { background: #e1f5fe !important; font-weight: bold; border-left: 5px solid #0288d1; }
-        .ai-buttons { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 20px; }
-        .btn-ai { background: #673ab7; color: white; border: none; padding: 8px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 11px; }
         
         .action-btns { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-top: 25px; }
         .btn-main { background: var(--primary); color: white; border: none; padding: 15px; border-radius: 6px; font-size: 14px; font-weight: bold; cursor: pointer; text-transform: uppercase; }
@@ -50,23 +48,26 @@
 <body>
 
 <div class="setup-box no-print">
-    <h1>RPH: RBT TAHUN 5</h1>
+    <h1>RPH: PENDIDIKAN MORAL TAHUN 2</h1>
     <div class="grid-3">
         <div><label>Tarikh</label><input type="date" id="tark" onchange="updateDay()"></div>
         <div><label>Hari</label><input type="text" id="hari" readonly></div>
         <div><label>Minggu</label><select id="mng"></select></div>
-        <div><label>Masa</label><input type="text" id="masa" placeholder="Contoh: 10:30 - 11:30"></div>
+        <div><label>Masa</label><input type="text" id="masa" placeholder="Contoh: 07:30 - 08:30"></div>
     </div>
     
-    <div><label>Unit / Tajuk</label><input type="text" id="tajuk" placeholder="Contoh: Unit 3: Teknologi Pertanian"></div>
+    <div><label>Nilai / Tajuk</label><input type="text" id="tajuk" placeholder="Contoh: Nilai 1: Kepercayaan kepada Tuhan"></div>
 
     <div style="margin-top:15px">
         <label>Standard Kandungan (SK)</label>
         <select id="sk_select" onchange="loadSP()">
-            <option value="4.3">4.3 Artikel Jahitan</option>
-            <option value="5.1">5.1 Reka Bentuk Produk Menggunakan Tenaga Boleh Baharu</option>
-            <option value="6.3">6.3 Asas Sistem Robotik</option>
-            <option value="7.1">7.1 Reka Bentuk Produk Bertema (Pertanian Hidroponik)</option>
+            <option value="1.0">1.0 Ajaran Agama atau Kepercayaan dalam Keluarga</option>
+            <option value="2.0">2.0 Bantuan kepada Ahli Keluarga</option>
+            <option value="3.0">3.0 Tanggungjawab dalam Keluarga</option>
+            <option value="4.0">4.0 Berterima Kasih dalam Keluarga</option>
+            <option value="5.0">5.0 Adab dalam Keluarga</option>
+            <option value="6.0">6.0 Hormat kepada Ahli Keluarga</option>
+            <option value="7.0">7.0 Kasih Sayang terhadap Keluarga</option>
         </select>
     </div>
 
@@ -75,10 +76,11 @@
         <div class="sp-container"><table class="sp-table" id="sp-list"></table></div>
     </div>
 
-    <div class="ai-buttons">
-        <div><button class="btn-ai" onclick="aiFill('obj')">🪄 AUTO OBJEKTIF</button><textarea id="f_obj" rows="3"></textarea></div>
-        <div><button class="btn-ai" onclick="aiFill('act')">🪄 AUTO AKTIVITI</button><textarea id="f_act" rows="3"></textarea></div>
-        <div><button class="btn-ai" onclick="aiFill('ref')">🪄 AUTO REFLEKSI</button><textarea id="f_ref" rows="3"></textarea></div>
+    <div style="margin-top:20px">
+        <label>Objektif / Aktiviti / Refleksi</label>
+        <textarea id="f_obj" placeholder="Objektif..." rows="2" style="margin-bottom:5px"></textarea>
+        <textarea id="f_act" placeholder="Aktiviti..." rows="3" style="margin-bottom:5px"></textarea>
+        <textarea id="f_ref" placeholder="Refleksi..." rows="2"></textarea>
     </div>
 
     <div class="action-btns">
@@ -93,10 +95,13 @@
 
 <script>
 const spData = {
-    "4.3": ["4.3.1 Mengenal pasti jenis mata jahitan tangan.","4.3.2 Menyatakan fungsi alatan jahitan.","4.3.3 Menghasilkan artikel jahitan menggunakan mata jahitan tangan."],
-    "5.1": ["5.1.1 Menyatakan sumber tenaga boleh baharu.","5.1.2 Mengenal pasti kepentingan tenaga boleh baharu.","5.1.3 Melakar reka bentuk produk tenaga boleh baharu."],
-    "6.3": ["6.3.1 Menyatakan elemen sistem robotik (Sensor, Kawalan, Penggerak).","6.3.2 Mengenal pasti komponen elektronik dalam robotik.","6.3.3 Membina atur cara untuk menggerakkan robot."],
-    "7.1": ["7.1.1 Mengenal pasti sistem hidroponik dalam pertanian.","7.1.2 Menyatakan alatan dan bahan untuk menanam secara hidroponik.","7.1.3 Menanam biji benih menggunakan sistem hidroponik."]
+    "1.0": ["1.1 Menyatakan ajaran agama atau kepercayaan dalam keluarga.","1.2 Menjelaskan kepentingan mengamalkan ajaran agama atau kepercayaan dalam keluarga.","1.3 Menunjuk cara amalan ajaran agama atau kepercayaan dalam keluarga."],
+    "2.0": ["2.1 Menyenaraikan contoh bantuan kepada ahli keluarga.","2.2 Menjelaskan cara memberi bantuan kepada ahli keluarga.","2.3 Menzahirkan perasaan apabila memberi bantuan kepada keluarga."],
+    "3.0": ["3.1 Menyenaraikan tanggungjawab terhadap keluarga.","3.2 Menjelaskan cara melaksanakan tanggungjawab terhadap keluarga.","3.3 Menunjukkan sikap bertanggungjawab terhadap keluarga."],
+    "4.0": ["4.1 Mengenal pasti pelbagai cara berterima kasih terhadap keluarga.","4.2 Menjelaskan kepentingan mengamalkan sikap berterima kasih.","4.3 Menunjukkan cara berterima kasih terhadap ahli keluarga."],
+    "5.0": ["5.1 Mengenal pasti adab dalam keluarga.","5.2 Menjelaskan kepentingan beradab sopan dalam keluarga.","5.3 Mempraktikkan adab sopan dalam keluarga."],
+    "6.0": ["6.1 Menyenaraikan cara menghormati ahli keluarga.","6.2 Menjelaskan kesan menghormati ahli keluarga.","6.3 Menunjukkan sikap hormat terhadap ahli keluarga."],
+    "7.0": ["7.1 Menjelaskan cara menyayangi ahli keluarga.","7.2 Merumuskan kepentingan menyayangi ahli keluarga.","7.3 Menunjukkan perasaan kasih sayang terhadap ahli keluarga."]
 };
 
 let selectedSP = [];
@@ -124,25 +129,16 @@ function loadSP() {
 }
 loadSP();
 
-function aiFill(type) {
-    const t = document.getElementById('tajuk').value || "Topik RBT";
-    if(type==='obj') document.getElementById('f_obj').value = `Pada akhir PdPc, murid dapat:\n1. Menguasai kemahiran praktikal bagi ${t}.\n2. Menjawab soalan penilaian dengan betul.`;
-    else if(type==='act') document.getElementById('f_act').value = `1. Pengenalan alatan dan bahan.\n2. Amali / Projek (Hands-on).\n3. Pengemasan bengkel dan rumusan.`;
-    else document.getElementById('f_ref').value = `___ / ___ murid berjaya menyiapkan projek/latihan tepat pada masa.`;
-}
-
-function clearAll() {
-    if(confirm("Padam data?")) { location.reload(); }
-}
+function clearAll() { if(confirm("Padam data?")) location.reload(); }
 
 function generateRPH() {
-    if(selectedSP.length === 0) return alert("Pilih SP!");
+    if(selectedSP.length === 0) return alert("Sila pilih SP!");
     const skTxt = document.getElementById('sk_select').options[document.getElementById('sk_select').selectedIndex].text;
     const content = `
     <div class="rph-paper">
         <div class="rph-header">
             <h1>RANCANGAN PENGAJARAN HARIAN</h1>
-            <h2>REKA BENTUK DAN TEKNOLOGI TAHUN 5</h2>
+            <h2>PENDIDIKAN MORAL TAHUN 2</h2>
         </div>
         <table class="meta-table">
             <tr>
@@ -156,7 +152,7 @@ function generateRPH() {
             </tr>
         </table>
         <table class="main-table">
-            <tr><td class="label-cell">UNIT / TAJUK</td><td>${document.getElementById('tajuk').value}</td></tr>
+            <tr><td class="label-cell">NILAI / TAJUK</td><td>${document.getElementById('tajuk').value}</td></tr>
             <tr><td class="label-cell">STANDARD KANDUNGAN</td><td>${skTxt}</td></tr>
             <tr><td class="label-cell">STANDARD PEMBELAJARAN</td><td style="font-weight:bold">${selectedSP.map(s => "• "+s).join("<br>")}</td></tr>
             <tr><td class="label-cell">OBJEKTIF PEMBELAJARAN</td><td>${document.getElementById('f_obj').value.replace(/\n/g,"<br>")}</td></tr>
